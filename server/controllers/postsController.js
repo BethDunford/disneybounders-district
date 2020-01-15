@@ -5,12 +5,12 @@ async function allPosts(req, res) {
 }
 
 async function addPost(req, res) {
-    const { caption, date_posted, img } = req.body;
+    const { caption, img } = req.body;
     const user_id = req.session.user.user_id;
     const db = req.app.get("db");
-    const addedPost = await db.posts.addPost([caption, date_posted, img, user_id]);
+    const addedPost = await db.posts.addPost([caption, img, user_id]);
     console.log(addedPost)
-    res.status(200).json(addedPost)
+    res.status(200).json(addedPost);
 }
 
 async function editPost(req, res) {
@@ -20,8 +20,8 @@ async function editPost(req, res) {
     const db = req.app.get("db");
     const editedPost = await db.posts.editPost([
         caption,
-        post_id,
-        user_id
+        user_id,
+        post_id
     ])
     res.status(200).json(editedPost);
 }

@@ -7,7 +7,7 @@ async function user(req, res) {
 }
 
 async function registerUser(req, res) {
-    const { first_name, last_name, username, profile_image, profile_description } = req.body;
+    const { first_name, last_name, username, profile_image, profile_description, password } = req.body;
     const db = req.app.get("db");
 
     const foundUser = await db.auth.checkForUsername(username)
@@ -51,13 +51,13 @@ async function loginUser(req, res) {
         if (!isAuthenticated) {
             res.status(403).json("Password is incorrect.")
         } else {
-            req.sessionUser = {
-                user_id: newUser[0].user_id,
-                first_name: newUser[0].first_name,
-                last_name: newUser[0].last_name,
-                username: newUser[0].username,
-                profile_image: newUser[0].profile_image,
-                profile_description: newUser[0].profile_description
+            req.session.user = {
+                user_id: foundUser[0].user_id,
+                first_name: foundUser[0].first_name,
+                last_name: foundUser[0].last_name,
+                username: foundUser[0].username,
+                profile_image: foundUser[0].profile_image,
+                profile_description: foundUser[0].profile_description
             }
         }
         console.log(req.session.user);
@@ -66,7 +66,7 @@ async function loginUser(req, res) {
 }
 
 async function logoutUser(req, res) {
-    req.session.destroy();
+    req.session.destroy;
     res.sendStatus(200);
 }
 
