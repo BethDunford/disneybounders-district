@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllPosts } from "../../redux/reducers/postsReducer";
-import { DisneyBound } from "../DisneyBound/DisneyBound";
+import DisneyBound from "../DisneyBound/DisneyBound";
 
 class Home extends Component {
     constructor() {
