@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addPost } from '../../redux/reducers/postsReducer';
 import { getSession } from '../../redux/reducers/authReducer';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class AddPost extends Component {
     constructor() {
         super();
         this.state = {
             caption: "",
-            img: ""
+            img: "",
+            addPost: false
         }
     }
 
     handleChange = e => {
-        this.ListeningStateChangedEvent({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     handleAddPost = () => {
@@ -23,7 +24,6 @@ class AddPost extends Component {
         const { addPost } = this.props;
 
         addPost({ caption, img })
-        this.props.history.push("/home")
     }
 
     render() {
@@ -32,14 +32,16 @@ class AddPost extends Component {
                 <h1>Add a DisneyBound</h1>
                 <input name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange} />
                 <input name="img" placeholder="Image" value={this.state.img} onChange={this.handleChange} />
-                <button onClick={this.handleAddPost}>Add a DisneyBound</button>
+                <Link to="/home">
+                    <button onClick={this.handleAddPost}>Add a DisneyBound</button>
+                </Link>
             </div>
         )
     }
 }
 
 const mapStateToProps = reduxState => {
-    return{
+    return {
         user_id: reduxState.authReducer.user_id
     }
 }

@@ -20,8 +20,7 @@ class DisneyBound extends Component {
             <div>
                 <ul>
                     <li>{this.props.profile_image}</li>
-                    <li>Username: {this.props.username}</li>
-                    <li>Date: {this.props.date_posted}</li>
+                    <li>{this.props.username}</li>
                     <li>{this.props.img}</li>
                     <li>{this.props.caption}</li>
                 </ul>

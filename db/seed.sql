@@ -28,8 +28,8 @@ VALUES ($1, $2, $3, $4, $5, $6)
 RETURNING *;
 
 --addPost
-INERT INTO posts (caption, date_posted, img, user_id)
-VALUES ($1, CURRENT_TIMESTAMP, $2, $3);
+INSERT INTO posts (caption, img, user_id)
+VALUES ($1, $2, $3);
 
 --getAllPosts | Inner Join
 SELECT p.*, u.username, u.profile_image FROM posts p
@@ -40,7 +40,6 @@ ORDER BY p.post_id DESC;
 --editPost
 UPDATE posts
 SET caption = $1,
-    date_posted = CURRENT_TIMESTAMP
 WHERE user_id = $2 AND post_id = $3;
 
 --deletePost
@@ -63,4 +62,4 @@ SET profile_description = $1,
 WHERE user_id = $3;
 
 --Dummy Data
-INSERT INTO posts ("New Tinkerbell DisneyBound just posted on Leslie's blog!", CURRENT_TIMESTAMP, "https://66.media.tumblr.com/e1e2353cd6c37afcb118d4808d7a53b0/d4c4189020060b3f-8e/s2048x3072/84af5c44713f3c0919601a848b773dcc93b136c5.jpg", 1)
+INSERT INTO posts ("New Tinkerbell DisneyBound just posted on Leslie's blog!", "https://66.media.tumblr.com/e1e2353cd6c37afcb118d4808d7a53b0/d4c4189020060b3f-8e/s2048x3072/84af5c44713f3c0919601a848b773dcc93b136c5.jpg", 1)

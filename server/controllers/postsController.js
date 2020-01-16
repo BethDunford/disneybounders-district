@@ -7,9 +7,9 @@ async function allPosts(req, res) {
 async function addPost(req, res) {
     const { caption, img } = req.body;
     const user_id = req.session.user.user_id;
+    console.log(typeof user_id)
     const db = req.app.get("db");
     const addedPost = await db.posts.addPost([caption, img, user_id]);
-    console.log(addedPost)
     res.status(200).json(addedPost);
 }
 

@@ -59,7 +59,8 @@ export default function reducer(state = initialState, action) {
         case `${GET_ALL_POSTS}_FULFILLED`: {
             return{
                 ...state,
-                posts: payload.data            }
+                posts: payload.data,
+                loading: false            }
         }
         case `${ADD_POST}_PENDING`: {
             return{

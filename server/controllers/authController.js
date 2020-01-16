@@ -68,7 +68,7 @@ async function loginUser(req, res) {
 }
 
 async function logoutUser(req, res) {
-    req.session.destroy;
+    req.session.destroy();
     res.sendStatus(200);
 }
 

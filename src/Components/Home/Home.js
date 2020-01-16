@@ -21,7 +21,7 @@ class Home extends Component {
         const postsMapped = posts.map((post,i) => {
             return(
                 <div key={i}>
-                    <DisneyBound user={post.user_id} profile_image={post.profile_image} username={post.username} img={post.img} caption={post.caption} date_posted={post.date_posted} />
+                    <DisneyBound user={post.user_id} profile_image={post.profile_image} username={post.username} img={post.img} caption={post.caption} />
                 </div>
             )
         })

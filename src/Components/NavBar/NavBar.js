@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSession } from '../../redux/reducers/authReducer';
+import { logoutUser } from '../../redux/reducers/authReducer';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
     constructor() {
@@ -16,14 +18,30 @@ class NavBar extends Component {
 
     render() {
         const { first_name } = this.props;
+        console.log(this.props.user_id);
         return(
             <div className="NavBar-container">
                 <div>DisneyBounders District</div>
                 <ul>
                     <li>Hi, {first_name}</li>
-                    <li>Home</li>
-                    <li>Add a DisneyBound</li>
-                    <li>My Profile</li>
+                    <li>
+                        <Link to="/home">
+                            <button>Home</button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/addadisneybound">
+                            <button>Add a DisneyBound</button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="bounder/:user_id">
+                            <button>My Profile</button>
+                        </Link>
+                    </li>
+                        <Link to="/">
+                            <button onClick={this.props.logoutUser}>See ya real soon</button>
+                        </Link>
                 </ul>
             </div> 
         )
@@ -32,8 +50,9 @@ class NavBar extends Component {
 
 const mapStateToProps = reduxState => {
     return {
+        user_id: reduxState.authReducer.user_id,
         first_name: reduxState.authReducer.first_name
     }
 }
 
-export default connect(mapStateToProps, { getSession })(NavBar);
+export default connect(mapStateToProps, { getSession, logoutUser })(NavBar);
