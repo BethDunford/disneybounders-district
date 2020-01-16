@@ -10,10 +10,6 @@ class EditPost extends Component {
         }
     }
 
-    componentDidMount() {
-
-    }
-
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -27,11 +23,11 @@ class EditPost extends Component {
         editPost(post_id, updated_post)
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <h1>Edit DisneyBound Caption</h1>
-                <input name="caption" placeholder="Caption" value={this.state.caption} />
+                <input name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange}/>
                 <button onClick={this.handleEditPost}>Save Changes</button>
             </div>
         )

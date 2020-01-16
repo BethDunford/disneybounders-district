@@ -7,15 +7,15 @@ const initialState = {
     loading: false
 }
 
-const GET_SESSION = "GET_SESSION";
+// const GET_SESSION = "GET_SESSION";
 const EDIT_PROFILE = "EDIT_PROFILE";
 
-export function getSession(){
-    return {
-        type: GET_SESSION,
-        payload: Axios.get("/auth/user")
-    }
-}
+// export function getSession(){
+//     return {
+//         type: GET_SESSION,
+//         payload: Axios.get("/auth/user")
+//     }
+// }
 
 export function editProfile(user_id, updated_profile) {
     return {

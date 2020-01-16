@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EditProfile from "../EditProfile/EditProfile";
 import { connect } from 'react-redux';
-import { getSession } from '../../redux/reducers/profileReducer';
+import { getSession } from '../../redux/reducers/authReducer';
 
 class UserProfile extends Component {
     constructor() {

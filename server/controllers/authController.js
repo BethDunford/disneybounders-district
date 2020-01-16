@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 async function user(req, res) {
     if (req.session.user) {
         res.status(200).json(req.session.user)
+    } else {
+        res.sendStatus(404)
     }
 }
 
