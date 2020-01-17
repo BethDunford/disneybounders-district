@@ -33,6 +33,7 @@ export function editPost(post_id, updated_post) {
 }
 
 export function deletePost(post_id) {
+    console.log(post_id)
     return {
         type: DELETE_POST,
         payload: Axios.delete(`/api/posts/${post_id}`)
