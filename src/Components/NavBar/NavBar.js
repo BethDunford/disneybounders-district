@@ -18,7 +18,6 @@ class NavBar extends Component {
 
     render() {
         const { first_name } = this.props;
-        console.log(this.props.user_id);
         return(
             <div className="NavBar-container">
                 <div>DisneyBounders District</div>

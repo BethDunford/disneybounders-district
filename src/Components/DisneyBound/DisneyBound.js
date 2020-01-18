@@ -25,8 +25,8 @@ class DisneyBound extends Component {
                     <h5>{this.props.caption}</h5>
                 {this.props.user === this.props.user_id ?
                 <div>
-                    <EditPost />
-                    <button onClick={() => this.props.deletePost(this.props.post_id)}>Delete</button>
+                    <EditPost caption={this.props.caption} post_id={this.props.post_id}/>
+                    <button onClick={() => this.props.deletePost(this.props.post_id, this.props.user_id)}>Delete</button>
                 </div>
                 : null}
             </div>
@@ -36,7 +36,8 @@ class DisneyBound extends Component {
 
 const mapStateToProps = reduxState => {
     return {
-        user_id: reduxState.authReducer.user_id
+        user_id: reduxState.authReducer.user_id,
+        posts: reduxState.postsReducer.posts
     }
 }
 

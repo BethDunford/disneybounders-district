@@ -27,9 +27,6 @@ class Login extends Component {
         if (this.props.user_id) {
             return <Redirect to="/home" />
         }
-
-        // console.log(this.props.user_id)
-
         return (
             <div>
                 <input name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange}/>

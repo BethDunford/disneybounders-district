@@ -16,16 +16,22 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.posts)
         const { posts } = this.props;
-        const postsMapped = posts.map((post,i) => {
-            return(
+        const postsMapped = posts.map((post, i) => {
+            return (
                 <div key={i}>
-                    <DisneyBound user={post.user_id} profile_image={post.profile_image} username={post.username} img={post.img} caption={post.caption} post_id={post.post_id}/>
+                    <DisneyBound 
+                    user={post.user_id} 
+                    profile_image={post.profile_image} 
+                    username={post.username} 
+                    img={post.img} 
+                    caption={post.caption} 
+                    post_id={post.post_id} 
+                    />
                 </div>
             )
         })
-        return(
+        return (
             <div>
                 <h1>Home</h1>
                 {postsMapped}

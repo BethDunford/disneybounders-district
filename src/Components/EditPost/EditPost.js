@@ -6,7 +6,8 @@ class EditPost extends Component {
     constructor() {
         super();
         this.state = {
-            caption: ""
+            caption: "",
+            post_id: null
         }
     }
 
@@ -14,21 +15,15 @@ class EditPost extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleEditPost = (post_id) => {
-        const { caption } = this.state;
-        const { editPost } = this.props;
-        const updated_post = {
-            caption
-        }
-        editPost(post_id, updated_post)
-    }
-
     render() {
+        let post = {
+            caption: this.state.caption,
+        }
         return (
             <div>
-                <h1>Edit DisneyBound Caption</h1>
-                <input name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange}/>
-                <button onClick={this.handleEditPost}>Save Changes</button>
+                <h3>Edit DisneyBound Caption</h3>
+                <input name="caption" placeholder="Caption" onChange={this.handleChange}/>
+                <button onClick={() => this.props.editPost(post, this.props.post_id)}>Save Changes</button>
             </div>
         )
     }
@@ -36,7 +31,7 @@ class EditPost extends Component {
 
 const mapStateToProps = reduxState => {
     return {
-        posts: reduxState.postsReducer.posts
+        post_id2: reduxState.postsReducer.post_id
     }
 }
 

@@ -2,6 +2,8 @@ import Axios from "axios";
 
 const initialState = {
     posts: [],
+    caption: "",
+    post_id: null,
     loading: false
 }
 
@@ -25,7 +27,7 @@ export function addPost(post){
     }
 }
 
-export function editPost(post_id, updated_post) {
+export function editPost(updated_post, post_id) {
     return {
     type: EDIT_POST,
     payload: Axios.put(`/api/posts/${post_id}`, updated_post)
@@ -33,7 +35,6 @@ export function editPost(post_id, updated_post) {
 }
 
 export function deletePost(post_id) {
-    console.log(post_id)
     return {
         type: DELETE_POST,
         payload: Axios.delete(`/api/posts/${post_id}`)
@@ -85,7 +86,7 @@ export default function reducer(state = initialState, action) {
             return{
                 ...state,
                 posts: payload.data,
-                loading: false
+                // loading: false
             }
         }
         case `${DELETE_POST}_PENDING`: {
