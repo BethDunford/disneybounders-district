@@ -10,7 +10,7 @@ export default (
         <Route component={GuestLanding} exact path="/"/>
         <Route component={Home} exact path="/home"/>
         <Route component={AddPost} exact path="/addadisneybound" />
-        <Route component={UserProfile} exact path="/bounder/:user_id" />
+        <Route component={UserProfile} exact path="/bounder/:username" />
         <Route render={ () => {
             return <h1>404 Page Not Found.</h1>
         }} />

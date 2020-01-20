@@ -39,7 +39,7 @@ app.get("/api/posts", allPosts);
 app.post("/api/posts", addPost);
 app.put("/api/posts/:post_id", editPost);
 app.delete("/api/posts/:post_id", deletePost);
-app.get("/api/posts/:user_id", allMyPosts);
+app.get("/api/posts/:username", allMyPosts);
 //profile endpoints
 app.put("/api/profile/:user_id", editProfile);
 //db connection

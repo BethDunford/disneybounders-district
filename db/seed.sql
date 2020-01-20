@@ -62,10 +62,10 @@ on p.user_id = u.user_id
 ORDER BY p.post_id DESC;
 
 --getAllMyPosts | Inner Join
-SELECT p.*, u.username, u.profile_image FROM posts p
+SELECT p.*, u.username, u.profile_image, u.profile_description FROM posts p
 INNER JOIN users u
 on u.user_id = p.user_id
-WHERE p.user_id = $1
+WHERE u.username = $1
 ORDER BY p.post_id DESC;
 
 --editProfile

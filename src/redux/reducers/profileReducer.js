@@ -1,7 +1,8 @@
 import Axios from "axios";
 
 const initialState = {
-    user_id: null,
+    posts: [],
+    username: "",
     profile_image: "",
     profile_description: "",
     loading: false
@@ -18,6 +19,7 @@ const EDIT_PROFILE = "EDIT_PROFILE";
 // }
 
 export function editProfile(user_id, updated_profile) {
+    console.log(updated_profile)
     return {
     type: EDIT_PROFILE,
     payload: Axios.put(`/api/profile/${user_id}`, updated_profile)

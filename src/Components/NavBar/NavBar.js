@@ -34,7 +34,7 @@ class NavBar extends Component {
                         </Link>
                     </li>
                     <li>
-                        <Link to="bounder/:user_id">
+                        <Link to={`bounder/${this.props.username}`}>
                             <button>My Profile</button>
                         </Link>
                     </li>
@@ -50,6 +50,7 @@ class NavBar extends Component {
 const mapStateToProps = reduxState => {
     return {
         user_id: reduxState.authReducer.user_id,
+        username: reduxState.authReducer.username,
         first_name: reduxState.authReducer.first_name
     }
 }

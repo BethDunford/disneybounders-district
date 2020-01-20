@@ -33,10 +33,10 @@ async function deletePost(req, res) {
 }
 
 async function allMyPosts(req, res) {
-    const user_id = req.session.user.user_id;
+    const username = req.params.username;
     const db = req.app.get("db");
-    const myPosts = await db.posts.getAllMyPosts(user_id)
-    res.status(200).json(myPosts);
+    const posts = await db.posts.getAllMyPosts(username)
+    res.status(200).json(posts);
 }
 
 module.exports = {

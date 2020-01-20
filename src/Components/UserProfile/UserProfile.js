@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import EditProfile from "../EditProfile/EditProfile";
-import { getAllMyPosts } from "../../redux/reducers/postsReducer";
 import { connect } from 'react-redux';
+import { getAllMyPosts } from "../../redux/reducers/postsReducer";
 import { getSession } from '../../redux/reducers/authReducer';
+import EditProfile from "../EditProfile/EditProfile";
+import DisneyBound from "../DisneyBound/DisneyBound";
 
 class UserProfile extends Component {
     constructor() {
         super();
         this.state = {
-            posts: [],
             editProfile: false
         }
     }
 
     componentDidMount() {
-        this.props.getAllMyPosts();
+        this.props.getSession();
+        this.props.getAllMyPosts(this.props.username);
     }
 
     handleOpenEditProfile = () => {
@@ -22,28 +23,39 @@ class UserProfile extends Component {
     }
 
     render() {
-        const { posts } = this.state;
-        const myPostsMapped = posts.map((post, i) => {
+        const { posts } = this.props;
+        const postsMapped = posts.map((post, i) => {
             return (
-                <div key={i} user_id={this.props.post.user_id} style={{ border: '1px solid black', maxWidth: '50%' }}>
-                    <h5>{this.props.post.profile_image}</h5>
-                    <h3>{this.props.post.username}</h3>
-                    <h4>{this.props.post.profile_description}</h4>
-                    {this.props.user === this.props.user_id ?
-                        <div>
-                            <EditProfile 
+                <div>
+                    <div key={this.props.user_id}>
+                        <DisneyBound
+                            user={post.user_id}
                             profile_image={post.profile_image}
-                            profile_description={post.profile_image}
-                            />
-                        </div>
-                        : null}
+                            username={post.username}
+                            img={post.img}
+                            caption={post.caption}
+                            post_id={post.post_id}
+                        />
+                    </div>
                 </div>
             )
         })
         return (
             <div>
-                <h1>{this.props.username}</h1>
-                {myPostsMapped}
+                <h1>Profile</h1>
+                <h5>{this.props.profile_image}</h5>
+                <h3>{this.props.username}</h3>
+                <h4>{this.props.profile_description}</h4>
+                <div>
+                    {this.props.user_id ?
+                        <div>
+                            <EditProfile
+                                profile_image={this.props.profile_image}
+                                profile_description={this.props.profile_description} />
+                        </div>
+                        : null}
+                </div>
+                {postsMapped}
             </div>
         )
     }
@@ -51,9 +63,12 @@ class UserProfile extends Component {
 
 const mapStateToProps = reduxState => {
     return {
-        user_id: reduxState.profileReducer.user_id,
-        posts: reduxState.postsReducer.posts
+        user_id: reduxState.authReducer.user_id,
+        posts: reduxState.postsReducer.posts,
+        username: reduxState.authReducer.username,
+        profile_image: reduxState.authReducer.profile_image,
+        profile_description: reduxState.authReducer.profile_description
     }
 }
 
-export default connect(mapStateToProps, { getSession, getAllMyPosts })(UserProfile);
+export default connect(mapStateToProps, { getAllMyPosts, getSession })(UserProfile);

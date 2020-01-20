@@ -35,7 +35,7 @@ async function registerUser(req, res) {
             profile_image: newUser[0].profile_image,
             profile_description: newUser[0].profile_description
         }
-        // console.log(req.session.user);
+        console.log(req.session.user);
         res.status(200).json(req.session.user)
     }
 }
@@ -62,7 +62,7 @@ async function loginUser(req, res) {
                 profile_description: foundUser[0].profile_description
             }
         }
-        // console.log(req.session.user);
+        console.log(req.session.user);
         res.status(200).json(req.session.user)
     }
 }

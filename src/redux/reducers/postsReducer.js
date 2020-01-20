@@ -41,10 +41,10 @@ export function deletePost(post_id) {
     }
 }
 
-export function getAllMyPosts(user_id) {
+export function getAllMyPosts(username) {
     return {
         type: GET_ALL_MY_POSTS,
-        payload: Axios.get(`/api/posts/${user_id}`)
+        payload: Axios.get(`/api/posts/${username}`)
     }
 }
 
@@ -62,7 +62,8 @@ export default function reducer(state = initialState, action) {
             return{
                 ...state,
                 posts: payload.data,
-                loading: false            }
+                loading: false            
+            }
         }
         case `${ADD_POST}_PENDING`: {
             return{
@@ -99,6 +100,19 @@ export default function reducer(state = initialState, action) {
             return{
                 ...state,
                 posts: payload.data
+            }
+        }
+        case `${GET_ALL_MY_POSTS}_PENDING`: {
+            return{
+                ...state,
+                loading: true
+            }
+        }
+        case `${GET_ALL_MY_POSTS}_FULFILLED`: {
+            return{
+                ...state,
+                posts: payload.data,
+                loading: false
             }
         }
         default:
