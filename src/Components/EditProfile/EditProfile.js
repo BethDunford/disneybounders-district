@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSession } from '../../redux/reducers/authReducer';
 import { editProfile } from '../../redux/reducers/profileReducer';
+import { withRouter, Link } from 'react-router-dom';
+require("dotenv").config();
 
 class EditProfile extends Component {
     constructor() {
@@ -30,13 +32,38 @@ class EditProfile extends Component {
         editProfile(this.props.user_id, updated_profile)
     }
 
+    checkUploadResult = (error, resultEvent) => {
+        if (resultEvent.event === 'success') {
+            this.setState({ profile_image: resultEvent.info.url })
+        }
+    }
+
     render() {
+        let widget
+        if (window.cloudinary) {
+            widget = window.cloudinary.createUploadWidget(
+                {
+                    cloudName: `${process.env.REACT_APP_cloudName}`,
+                    uploadPreset: `${process.env.REACT_APP_uploadPreset}`,
+                    sources: ["local", "url", "facebook", "instagram"],
+                    cropping: true,
+                    cropping_aspect_ratio: 1,
+                    show_skip_crop_button: true,
+                    Default: false
+                },
+                (error, result) => {
+                    this.checkUploadResult(error, result)
+                    this.checkUploadResult(error, result)
+                })
+        }
         return (
             <div>
                 <h1>Edit Your Profile</h1>
-                <input name="profile_image" placeholder="Profile Image"  onChange={this.handleChange}/>
+                <button name="profile_image" onClick={() => widget.open()}>Pick a new pic!</button>
                 <input name="profile_description" placeholder="Profile Description"  onChange={this.handleChange}/>
+                <Link to="/bounder/:username">
                 <button onClick= {this.handleEditProfile}>Save Changes</button>
+                </Link>
             </div>
         )
     }
@@ -48,4 +75,4 @@ const mapStateToProps = reduxState => {
     }
 }
 
-export default connect(mapStateToProps, { getSession, editProfile })(EditProfile);
+export default withRouter(connect(mapStateToProps, { getSession, editProfile })(EditProfile));

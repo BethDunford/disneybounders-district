@@ -21,17 +21,12 @@ class AddPost extends Component {
 
     handleAddPost = () => {
         const { caption, img } = this.state;
-
         const { addPost } = this.props;
-
         addPost({ caption, img })
     }
 
     checkUploadResult = (error, resultEvent) => {
-        // console.log(resultEvent)
         if (resultEvent.event === 'success') {
-            console.log('upload success huzzah!')
-            console.log(resultEvent.info.url)
             this.setState({ img: resultEvent.info.url })
         }
     }
@@ -43,10 +38,7 @@ class AddPost extends Component {
                 {
                     cloudName: `${process.env.REACT_APP_cloudName}`,
                     uploadPreset: `${process.env.REACT_APP_uploadPreset}`,
-                    sources: ["local", "facebook", "instagram"],
-                    cropping: true,
-                    cropping_aspect_ratio: 1,
-                    show_skip_crop_button: true,
+                    sources: ["local", "url", "facebook", "instagram"],
                     Default: false
                 },
                 (error, result) => {
