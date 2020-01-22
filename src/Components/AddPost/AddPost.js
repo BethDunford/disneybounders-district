@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 import { addPost } from '../../redux/reducers/postsReducer';
 import { getSession } from '../../redux/reducers/authReducer';
 import { withRouter, Link } from 'react-router-dom';
-// import { CloudinaryContext, Image } from 'cloudinary-react';
+import { CloudinaryContext, Image } from 'cloudinary-react';
 // import { fetchPhotos, url, openUploadWidget } from '../../../public/utils/CloudinaryService';
+import { Cloudinary as CoreCloudinary, Util } from 'cloudinary-core';
+var cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: 'disneybounders-district',
+    api_key: '433346987376378',
+    api_secret: 'C2uH4ZiqUy5ndQdqQJoGE0vD6fg'
+})
 
 class AddPost extends Component {
     constructor() {
