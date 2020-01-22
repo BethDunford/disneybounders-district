@@ -21,7 +21,7 @@ class DisneyBound extends Component {
             <div key={this.props.post_id} style={{border: '1px solid black', maxWidth: '50%'}}>
                     <h2>{this.props.profile_image}</h2>
                     <h3>{this.props.username}</h3>
-                    <h4>{this.props.img}</h4>
+                    <img src={this.props.img} alt='DisneyBound'></img>
                     <h5>{this.props.caption}</h5>
                 {this.props.user === this.props.user_id ?
                 <div>

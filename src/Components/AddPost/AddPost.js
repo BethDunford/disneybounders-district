@@ -3,16 +3,7 @@ import { connect } from 'react-redux';
 import { addPost } from '../../redux/reducers/postsReducer';
 import { getSession } from '../../redux/reducers/authReducer';
 import { withRouter, Link } from 'react-router-dom';
-import { CloudinaryContext, Image } from 'cloudinary-react';
-// import { fetchPhotos, url, openUploadWidget } from '../../../public/utils/CloudinaryService';
-import { Cloudinary as CoreCloudinary, Util } from 'cloudinary-core';
-var cloudinary = require('cloudinary').v2;
-
-cloudinary.config({
-    cloud_name: 'disneybounders-district',
-    api_key: '433346987376378',
-    api_secret: 'C2uH4ZiqUy5ndQdqQJoGE0vD6fg'
-})
+require("dotenv").config();
 
 class AddPost extends Component {
     constructor() {
@@ -36,42 +27,40 @@ class AddPost extends Component {
         addPost({ caption, img })
     }
 
-    checkUploadResult = (resultEvent) => {
+    checkUploadResult = (error, resultEvent) => {
+        // console.log(resultEvent)
         if (resultEvent.event === 'success') {
-            console.log(this.props.currentUser.id);
-            this.props.postPhoto({
-                user_id: this.props.currentUser.id,
-                caption: '',
-                url: resultEvent.info.secure_url
-            })
-                .then(this.props.history.push(`/home`))
+            console.log('upload success huzzah!')
+            console.log(resultEvent.info.url)
+            this.setState({ img: resultEvent.info.url })
         }
     }
 
-    showWidget = (widget) => {
-        widget.open()
-    }
-
     render() {
-        let widget = window.cloudinary.createUploadWidget({
-            cloudName: "disneybounders-district",
-            uploadPreset: "mhpqhdoq"},
-            (error, result) => {
-                if (!error && result && result.event === "success") {
-                    console.log('Done! Here is the image info: ', result.info);
-                }
-            }
-        )
-        document.getElementById("upload_widget").addEventListener("click", function(){
-            widget.open();
-        }, false);
+        let widget
+        if (window.cloudinary) {
+            widget = window.cloudinary.createUploadWidget(
+                {
+                    cloudName: `${process.env.REACT_APP_cloudName}`,
+                    uploadPreset: `${process.env.REACT_APP_uploadPreset}`,
+                    sources: ["local", "facebook", "instagram"],
+                    cropping: true,
+                    cropping_aspect_ratio: 1,
+                    show_skip_crop_button: true,
+                    Default: false
+                },
+                (error, result) => {
+                    this.checkUploadResult(error, result)
+                    this.checkUploadResult(error, result)
+                })
+        }
         return (
             <div>
                 <h1>Add a DisneyBound</h1>
                 <input name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange} />
-                <input name="img" placeholder="Image" value={this.state.img} onChange={this.handleChange} />
+                <button name="img" onClick={() => widget.open()}>Choose Image</button>
                 <Link to="/home">
-                    <button onClick={this.showWidget}>Add a DisneyBound</button>
+                    <button onClick={this.handleAddPost}>Add a DisneyBound</button>
                 </Link>
             </div>
         )
