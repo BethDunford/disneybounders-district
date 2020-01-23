@@ -29,7 +29,6 @@ class Register extends Component {
 
     checkUploadResult = (error, resultEvent) => {
         if (resultEvent.event === 'success') {
-            console.log(resultEvent)
             this.setState({ profile_image: resultEvent.info.url })
         }
     }

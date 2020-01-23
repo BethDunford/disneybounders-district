@@ -3,20 +3,14 @@ import Axios from "axios";
 const initialState = {
     posts: [],
     username: "",
+    user_id: null,
     profile_image: "",
     profile_description: "",
     loading: false
 }
 
-// const GET_SESSION = "GET_SESSION";
 const EDIT_PROFILE = "EDIT_PROFILE";
-
-// export function getSession(){
-//     return {
-//         type: GET_SESSION,
-//         payload: Axios.get("/auth/user")
-//     }
-// }
+// const DELETE_PROFILE = "DELETE_PROFILE";
 
 export function editProfile(user_id, updated_profile) {
     console.log(updated_profile)
@@ -25,6 +19,13 @@ export function editProfile(user_id, updated_profile) {
     payload: Axios.put(`/api/profile/${user_id}`, updated_profile)
     }
 }
+
+// export function deleteProfile(user_id) {
+//     return{
+//         type: DELETE_PROFILE,
+//         payload: Axios.delete(`/api/profile/${user_id}`)
+//     }
+// }
 
 export default function reducer(state = initialState, action) {
     const { type, payload } = action;
@@ -44,6 +45,19 @@ export default function reducer(state = initialState, action) {
                 loading: false
             }
         }
+        // case `${DELETE_PROFILE}_PENDING`: {
+        //     return{
+        //         ...state,
+        //         loading: true
+        //     }
+        // }
+        // case `${DELETE_PROFILE}_FULFILLED`: {
+        //     return{
+        //         ...state,
+        //         user_id: payload.data.user_id,
+        //         loading: false
+        //     }
+        // }
         default:
             return state;
     }

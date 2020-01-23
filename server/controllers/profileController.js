@@ -1,7 +1,6 @@
 async function editProfile(req, res) {
     const { profile_image, profile_description } = req.body;
     const user_id = +req.params.user_id;
-    console.log(user_id)
     const db = req.app.get("db");
     const editedProfile = await db.profile.editProfile([
         profile_image,
@@ -19,6 +18,14 @@ async function editProfile(req, res) {
         res.status(200).json(req.session.user);
 }
 
+// async function deleteProfile(req,res) {
+//     const user_id = +req.params.user_id;
+//     const db = req.app.get("db");
+//     const deletedProfile = await db.profile.deleteProfile([user_id])
+//     res.status(200).json(deletedProfile);
+// }
+
 module.exports = {
-    editProfile
+    editProfile,
+    // deleteProfile
 }

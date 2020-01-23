@@ -35,6 +35,7 @@ class EditProfile extends Component {
     checkUploadResult = (error, resultEvent) => {
         if (resultEvent.event === 'success') {
             this.setState({ profile_image: resultEvent.info.url })
+            alert("Save changes please!")
         }
     }
 

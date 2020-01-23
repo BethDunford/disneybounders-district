@@ -4,6 +4,7 @@ import { getAllMyPosts } from "../../redux/reducers/postsReducer";
 import { getSession } from '../../redux/reducers/authReducer';
 import EditProfile from "../EditProfile/EditProfile";
 import DisneyBound from "../DisneyBound/DisneyBound";
+// import { deleteProfile } from "../../redux/reducers/profileReducer";
 
 class UserProfile extends Component {
     constructor() {
@@ -43,7 +44,7 @@ class UserProfile extends Component {
         return (
             <div>
                 <h1>Profile</h1>
-                <h5>{this.props.profile_image}</h5>
+                <img src={this.props.profile_image} alt="Profile"></img>
                 <h3>{this.props.username}</h3>
                 <h4>{this.props.profile_description}</h4>
                 <div>
@@ -52,6 +53,7 @@ class UserProfile extends Component {
                             <EditProfile
                                 profile_image={this.props.profile_image}
                                 profile_description={this.props.profile_description} />
+                            {/* <button onClick={() => this.props.deleteProfile(this.props.user_id)}>Delete</button> */}
                         </div>
                         : null}
                 </div>

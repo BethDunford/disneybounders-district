@@ -19,7 +19,7 @@ class DisneyBound extends Component {
     render(){
         return (
             <div key={this.props.post_id} style={{border: '1px solid black', maxWidth: '50%'}}>
-                    <h2>{this.props.profile_image}</h2>
+                    <img src={this.props.profile_image} alt="Profile"></img>
                     <h3>{this.props.username}</h3>
                     <img src={this.props.img} alt='DisneyBound'></img>
                     <h5>{this.props.caption}</h5>
