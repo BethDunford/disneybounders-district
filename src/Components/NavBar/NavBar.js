@@ -22,7 +22,11 @@ class NavBar extends Component {
             <div className="NavBar-container">
                 <div>DisneyBounders District</div>
                 <ul>
-                    <li>Hi, {first_name}</li>
+                    {this.props.user_id ?
+                        <div>
+                            <li>Hi, {first_name}</li>
+                        </div>
+                        : null}
                     <li>
                         <Link to="/home">
                             <button>Home</button>
