@@ -39,11 +39,8 @@ class Register extends Component {
             widget = window.cloudinary.createUploadWidget(
                 {
                     cloudName: `${process.env.REACT_APP_cloudName}`,
-                    uploadPreset: `${process.env.REACT_APP_uploadPreset}`,
+                    uploadPreset: `${process.env.REACT_APP_profileUploadPreset}`,
                     sources: ["local", "url", "facebook", "instagram"],
-                    cropping: true,
-                    cropping_aspect_ratio: 1,
-                    show_skip_crop_button: false,
                     Default: false
                 },
                 (error, result) => {
@@ -58,7 +55,7 @@ class Register extends Component {
                 <input name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
                 <button name="profile_image" onClick={() => widget.open()}>Pick a Pic!</button>
                 <input name="profile_description" placeholder="Profile Description" value={this.state.profile_description} onChange={this.handleChange} />
-                <input name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                 <Link to="/home">
                 <button onClick={this.handleRegister}>Register</button>
                 </Link>

@@ -45,11 +45,8 @@ class EditProfile extends Component {
             widget = window.cloudinary.createUploadWidget(
                 {
                     cloudName: `${process.env.REACT_APP_cloudName}`,
-                    uploadPreset: `${process.env.REACT_APP_uploadPreset}`,
+                    uploadPreset: `${process.env.REACT_APP_profileUploadPreset}`,
                     sources: ["local", "url", "facebook", "instagram"],
-                    cropping: true,
-                    cropping_aspect_ratio: 1,
-                    show_skip_crop_button: true,
                     Default: false
                 },
                 (error, result) => {
