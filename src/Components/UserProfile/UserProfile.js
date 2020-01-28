@@ -28,7 +28,7 @@ class UserProfile extends Component {
         const postsMapped = posts.map((post, i) => {
             return (
                 <div>
-                    <div key={this.props.user_id}>
+                    <div className="profile-posts-map" key={this.props.user_id}>
                         <DisneyBound
                             user={post.user_id}
                             profile_image={post.profile_image}
@@ -42,22 +42,25 @@ class UserProfile extends Component {
             )
         })
         return (
-            <div>
-                <h1>Profile</h1>
-                <img src={this.props.profile_image} alt="Profile"></img>
-                <h3>{this.props.username}</h3>
-                <h4>{this.props.profile_description}</h4>
+            <div id="profile-main">
+                <h1>Welcome to Your Closet!</h1>
+                <div className="profile-picture-and-username">
+                    <img src={this.props.profile_image} alt="Profile"></img>
+                    <h3 className="profile-page-username"> {this.props.username}</h3>
+                </div>
+                <h4 className="profile-page-description"> {this.props.profile_description}</h4>
                 <div>
                     {this.props.user_id ?
                         <div>
                             <EditProfile
                                 profile_image={this.props.profile_image}
                                 profile_description={this.props.profile_description} />
-                            {/* <button onClick={() => this.props.deleteProfile(this.props.user_id)}>Delete</button> */}
                         </div>
                         : null}
                 </div>
-                {postsMapped}
+                <section id="profile-page">
+                    {postsMapped}
+                </section>
             </div>
         )
     }

@@ -51,10 +51,10 @@ class AddPost extends Component {
                 <div className="add-post-container">
                     <div className="form-3">
                         <h1>Hang a DisneyBound In Your Closet</h1>
-                        <button className="add-post-buttons" name="img" onClick={() => widget.open()}>Pick a Pic!</button>
+                        <button className="add-post-button-1" name="img" onClick={() => widget.open()}>Pick a Pic!</button>
                         <input className="input-field" name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange} />
                         <Link to="/home">
-                            <button className="add-post-buttons" onClick={this.handleAddPost}>Hang Your DisneyBound</button>
+                            <button className="add-post-button-2" onClick={this.handleAddPost}>Hang Your DisneyBound</button>
                         </Link>
                     </div>
                 </div>

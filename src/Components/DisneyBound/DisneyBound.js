@@ -18,8 +18,8 @@ class DisneyBound extends Component {
 
     render() {
         return (
-                <div className="disneybound-background-container">
-                    <div className="disneybound-container" key={this.props.post_id}>
+                <div className="disneybound-container">
+                    <div className="disneybound-container-content" key={this.props.post_id}>
                         <div id="profile-info">
                             <img className="disneybound-profile-image" src={this.props.profile_image} alt="Profile"></img>
                             <h3 className="disneybound-username">{this.props.username}</h3>

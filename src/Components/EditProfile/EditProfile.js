@@ -56,7 +56,7 @@ class EditProfile extends Component {
         }
         return (
             <div>
-                <h1>Edit Your Profile</h1>
+                <h4>Clean Your Closet</h4>
                 <button name="profile_image" onClick={() => widget.open()}>Pick a new pic!</button>
                 <input name="profile_description" placeholder="Profile Description"  onChange={this.handleChange}/>
                 <Link to="/bounder/:username">
