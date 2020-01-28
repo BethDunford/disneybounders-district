@@ -49,15 +49,15 @@ class Register extends Component {
                 })
         }
         return (
-            <div>
-                <input name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleChange} />
-                <input name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleChange} />
-                <input name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
-                <button name="profile_image" onClick={() => widget.open()}>Pick a Pic!</button>
-                <input name="profile_description" placeholder="Profile Description" value={this.state.profile_description} onChange={this.handleChange} />
-                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+            <div className="form">
+                <input className="input-field" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleChange} />
+                <input className="input-field"  name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleChange} />
+                <button className="register-buttons" name="profile_image" onClick={() => widget.open()}>Pick a Pic!</button>
+                <input className="input-field"  name="profile_description" placeholder="Profile Description" value={this.state.profile_description} onChange={this.handleChange} />
+                <input className="input-field"  name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
+                <input className="input-field"  type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                 <Link to="/home">
-                <button onClick={this.handleRegister}>Register</button>
+                <button className="register-buttons" onClick={this.handleRegister}>Register</button>
                 </Link>
             </div>
         )

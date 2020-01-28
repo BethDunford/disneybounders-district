@@ -1,0 +1,41 @@
+@mixin input-field {
+    width: 159px;
+    height: 21px;
+    font-family: ITC Avant Garde Gotchic, sans-serif;
+    color: darkgrey;
+    background : rgba(255, 255, 255, 1);
+    border-style : Solid;
+    border-color : rgba(235, 235, 235, 1);
+    border-width : 2px;
+    width : 159px;
+    height : 21px;
+}
+
+.form {
+    display: block;
+    text-align: center;
+}
+
+.input-field {
+    @include input-field;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.register-buttons {
+    background : rgba(204, 0, 0, 1);
+    color: white;
+    border-style : Solid;
+    border-color : rgba(235, 235, 235, 1);
+    border-width : 2px;
+    width : 165px;
+    height : 27px;
+    padding: 1px;
+    margin: 5px 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

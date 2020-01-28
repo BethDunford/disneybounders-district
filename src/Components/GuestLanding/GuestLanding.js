@@ -12,12 +12,14 @@ class GuestLanding extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Welcome to DisneyBounders Direct</h1>
-                New Bounder? Please register below!
+            <div className="guest-landing-container">
+                <div className="register-login-container">
+                    <h1>Welcome to DisneyBounders District</h1>
+                    <h2>New Bounder? Please register below!</h2>
                 <Register />
-                Welcome back!
+                    <h2 id="login">Welcome back, login below!</h2>
                 <Login />
+                </div>
             </div>
         )
     }

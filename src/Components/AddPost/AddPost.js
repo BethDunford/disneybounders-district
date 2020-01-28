@@ -47,13 +47,17 @@ class AddPost extends Component {
                 })
         }
         return (
-            <div>
-                <h1>Add a DisneyBound</h1>
-                <input name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange} />
-                <button name="img" onClick={() => widget.open()}>Choose Image</button>
-                <Link to="/home">
-                    <button onClick={this.handleAddPost}>Add a DisneyBound</button>
-                </Link>
+            <div className="add-post-background">
+                <div className="add-post-container">
+                    <div className="form-3">
+                        <h1>Hang a DisneyBound In Your Closet</h1>
+                        <button className="add-post-buttons" name="img" onClick={() => widget.open()}>Pick a Pic!</button>
+                        <input className="input-field" name="caption" placeholder="Caption" value={this.state.caption} onChange={this.handleChange} />
+                        <Link to="/home">
+                            <button className="add-post-buttons" onClick={this.handleAddPost}>Hang Your DisneyBound</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -19,22 +19,24 @@ class Home extends Component {
         const { posts } = this.props;
         const postsMapped = posts.map((post, i) => {
             return (
-                <div key={i}>
-                    <DisneyBound 
-                    user={post.user_id} 
-                    profile_image={post.profile_image} 
-                    username={post.username} 
-                    img={post.img} 
-                    caption={post.caption} 
-                    post_id={post.post_id} 
+                <div className="posts-map" key={i}>
+                    <DisneyBound
+                        user={post.user_id}
+                        profile_image={post.profile_image}
+                        username={post.username}
+                        img={post.img}
+                        caption={post.caption}
+                        post_id={post.post_id}
                     />
                 </div>
             )
         })
         return (
-            <div>
-                <h1>Home</h1>
-                {postsMapped}
+            <div id="home-main">
+                    <h1>Welcome to the Hall Closet, where you can view everyone's DisneyBounds!</h1>
+                <section id="home-page">
+                    {postsMapped}
+                </section>
             </div>
         )
     }

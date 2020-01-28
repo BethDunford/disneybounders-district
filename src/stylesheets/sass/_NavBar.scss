@@ -1,0 +1,63 @@
+$font-stack: ITC Avant Garde Gothic, sans-serif;
+$color-white: white;
+$font-size: 20px;
+
+.nav-bar-container {
+    background-image: url("https://i.imgur.com/nJH9pyj.png");
+    background-size: 100vw;
+    float: right;
+    color: $color-white;
+    text-align: center;
+    width: 100vw;
+    height: 7vh;
+    background-repeat: repeat-y;
+    background-color: none;
+    align-items: center;
+    align-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    :hover {
+        color: yellow;
+        cursor: pointer;
+    }
+}
+
+.nav-bar-button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    color: $color-white;
+    text-align: left;
+    text-decoration: none;
+    flex-direction: row;
+    font-size: $font-size;
+    font-family: 100% $font-stack;
+}
+
+.list-item {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 10px;
+    background-color: none;
+}
+
+#nav-bar-logo {
+    max-width: 80%;
+    max-height: 80%;
+    float: left;
+    margin-left: 40px;
+}
+
+#greeting {
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    flex-direction: row;
+    font-size: $font-size;
+    font-family: ITC Avant Garde Gothic, sans-serif;
+    align-items: center;
+}

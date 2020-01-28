@@ -1,0 +1,54 @@
+$font-stack: ITC Avant Garde Gothic, sans-serif;
+$color-black: black;
+$font-size: 20px;
+
+.guest-landing-container {
+    background-image: url('https://i.imgur.com/TnI0NpW.png');
+    background-size: 100vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-repeat: repeat-y;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+h1 {
+    font-family: $font-stack;
+    color: $color-black;
+    font-size: 24px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 110px;
+}
+
+h2 {
+    font-family: $font-stack;
+    color: $color-black;
+    font-size: $font-size;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#login {
+    margin-top: 20px;
+}
+
+.register-login-container {
+    background-image: url('https://i.imgur.com/tV4lmiX.png');
+    background-repeat: none;
+    position : absolute ;
+    left : 494px;
+    top : 223px;
+    width : 458px;
+    height : 586px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }

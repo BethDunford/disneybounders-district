@@ -1,7 +1,83 @@
-h1 {
-    color: magenta;
+$font-stack: ITC Avant Garde Gothic, sans-serif;
+$color-black: black;
+$font-size: 20px;
+
+@mixin input-field {
+    width: 159px;
+    height: 21px;
+    font-family: ITC Avant Garde Gotchic, sans-serif;
+    color: darkgrey;
+    background : rgba(255, 255, 255, 1);
+    border-style : Solid;
+    border-color : rgba(235, 235, 235, 1);
+    border-width : 2px;
+    width : 159px;
+    height : 21px;
 }
 
-button {
-    background-color: chartreuse;
+.add-post-background {
+    background-image: url('https://i.imgur.com/TnI0NpW.png');
+    background-size: 100vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-repeat: repeat-y;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.form-3 {
+    display: block;
+    text-align: center;
+}
+
+.input-field {
+    @include input-field;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.add-post-container {
+    background-image: url('https://i.imgur.com/tV4lmiX.png');
+    background-repeat: none;
+    position : absolute ;
+    left : 494px;
+    top : 223px;
+    width : 458px;
+    height : 586px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+h1 {
+    font-family: $font-stack;
+    color: $color-black;
+    font-size: 24px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 110px;
+}
+
+.add-post-buttons {
+    background : rgba(204, 0, 0, 1);
+    color: white;
+    border-style : Solid;
+    border-color : rgba(235, 235, 235, 1);
+    border-width : 2px;
+    width : 165px;
+    height : 27px;
+    padding: 1px;
+    margin: 5px 0px;
 }
