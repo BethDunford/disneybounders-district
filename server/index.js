@@ -11,6 +11,7 @@ const proc = require("./controllers/profileController");
 const { SERVER_PORT, DB_STRING, SESSION_SECRET } = process.env;
 //middleware
 app.use(express.json());
+app.use( express.static( `${__dirname}/../build` ) );
 //session
 app.use(session({
     secret: SESSION_SECRET,
