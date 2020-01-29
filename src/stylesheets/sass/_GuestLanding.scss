@@ -1,4 +1,4 @@
-$font-stack: ITC Avant Garde Gothic, sans-serif;
+$font-stack: Arial, sans-serif;
 $color-black: black;
 $font-size: 20px;
 
@@ -39,10 +39,8 @@ h2 {
 
 .register-login-container {
     background-image: url('https://i.imgur.com/tV4lmiX.png');
-    background-repeat: none;
-    position : absolute ;
-    left : 494px;
-    top : 223px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     width : 458px;
     height : 586px;
     display: flex;

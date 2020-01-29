@@ -13,7 +13,7 @@
 @mixin input-field {
     width: 159px;
     height: 21px;
-    font-family: ITC Avant Garde Gotchic, sans-serif;
+    font-family: Arial, sans-serif;
     color: darkgrey;
     background : rgba(255, 255, 255, 1);
     border-style : Solid;
@@ -54,10 +54,8 @@
 
 .add-post-container {
     background-image: url('https://i.imgur.com/tV4lmiX.png');
-    background-repeat: none;
-    position : absolute ;
-    left : 494px;
-    top : 223px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     width : 458px;
     height : 586px;
     display: flex;
