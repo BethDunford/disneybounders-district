@@ -44,11 +44,13 @@ class UserProfile extends Component {
         return (
             <div id="profile-main">
                 <h1>Welcome to Your Closet!</h1>
-                <div className="profile-picture-and-username">
-                    <img src={this.props.profile_image} alt="Profile"></img>
-                    <h3 className="profile-page-username"> {this.props.username}</h3>
+                <div className="profile-info">
+                    <img className="profile-page-image" src={this.props.profile_image} alt="Profile"></img>
+                    <div id="profile-username-and-description">
+                        <h3 className="profile-page-username"> {this.props.username}</h3>
+                        <h4 className="profile-page-description"> {this.props.profile_description}</h4>
+                    </div>
                 </div>
-                <h4 className="profile-page-description"> {this.props.profile_description}</h4>
                 <div>
                     {this.props.user_id ?
                         <div>

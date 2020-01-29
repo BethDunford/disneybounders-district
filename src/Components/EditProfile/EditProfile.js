@@ -55,12 +55,12 @@ class EditProfile extends Component {
                 })
         }
         return (
-            <div>
+            <div className="edit-profile">
                 <h4>Clean Your Closet</h4>
-                <button name="profile_image" onClick={() => widget.open()}>Pick a new pic!</button>
-                <input name="profile_description" placeholder="Profile Description"  onChange={this.handleChange}/>
+                <input className="edit-profile-description" name="profile_description" placeholder="Profile Description"  onChange={this.handleChange}/>
+                <button className="edit-profile-image" name="profile_image" onClick={() => widget.open()}>Pick a new pic!</button>
                 <Link to="/bounder/:username">
-                <button onClick= {this.handleEditProfile}>Save Changes</button>
+                <button className="save-changes-button" onClick= {this.handleEditProfile}>Save Changes</button>
                 </Link>
             </div>
         )

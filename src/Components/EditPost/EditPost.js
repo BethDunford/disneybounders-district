@@ -20,10 +20,9 @@ class EditPost extends Component {
             caption: this.state.caption,
         }
         return (
-            <div>
-                <h3>Edit DisneyBound Caption</h3>
-                <input name="caption" placeholder="Caption" onChange={this.handleChange}/>
-                <button onClick={() => this.props.editPost(post, this.props.post_id)}>Save Changes</button>
+            <div className="edit-post-container">
+                <input className="edit-post-input" name="caption" placeholder="Edit Your Caption" onChange={this.handleChange}/>
+                <button className="edit-post-button" onClick={() => this.props.editPost(post, this.props.post_id)}>Save Changes</button>
             </div>
         )
     }

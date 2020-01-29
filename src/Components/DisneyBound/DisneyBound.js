@@ -27,9 +27,9 @@ class DisneyBound extends Component {
                         <img className="disneybound-image" src={this.props.img} alt='DisneyBound'></img>
                         <h5 className="disneybound-caption">{this.props.caption}</h5>
                         {this.props.user === this.props.user_id ?
-                            <div>
+                            <div className="edit-and-delete">
                                 <EditPost caption={this.props.caption} post_id={this.props.post_id} />
-                                <button onClick={() => this.props.deletePost(this.props.post_id, this.props.user_id)}>Delete</button>
+                                <button className="delete-post-button" onClick={() => this.props.deletePost(this.props.post_id, this.props.user_id)}>Delete Your DisneyBound</button>
                             </div>
                             : null}
                     </div>
